@@ -1,0 +1,11 @@
+### 회원 정보 조회
+GET http://localhost:8080/members
+
+### 회원 정보 생성
+POST http://localhost:8080/members
+Content-Type: application/json
+
+{
+  "id": 4,
+  "name": "이름4"
+}
