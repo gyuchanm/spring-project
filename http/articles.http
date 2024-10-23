@@ -25,3 +25,12 @@ Content-Type: application/json
   "title" : "변경된 제목",
   "content": "변경된 내용"
 }
+
+###댓글 정보 생성 REST API
+@articleId=1
+POST localhost:8080/api/articles/{{articleId}}/comments
+Content-Type: application/json
+
+{
+  "body": "댓글 내용1"
+}

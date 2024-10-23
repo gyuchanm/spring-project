@@ -22,7 +22,7 @@ public class WebSecurityConfiguration {
     @Bean
     public WebSecurityCustomizer ignore() {
         return webSecurity -> webSecurity.ignoring()
-                .requestMatchers(toH2Console())   // /h2-console
+                //.requestMatchers(toH2Console())   // /h2-console
                 .requestMatchers("/static/**", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html");
     }
     // 특정 요청에 대한 보안 구성 (주석 : 6.1 이전 ver. - 6.1 이후 부터는 람다 표현식으로 설정)
@@ -30,8 +30,8 @@ public class WebSecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity.authorizeHttpRequests(  // 3) 인증, 인가 설정
                         custom -> custom.requestMatchers("/login", "/signup", "/user").permitAll()
-                                .requestMatchers("/articles/**").hasRole("ADMIN")
-                                .anyRequest().authenticated()
+                                //.requestMatchers("/articles/**").hasRole("ADMIN")
+                                .anyRequest().permitAll()   //authenticated()
                 )
 //                .requestMatchers("/login", "/signup", "/user").permitAll()
 //                .anyRequest().authenticated()       // '위에서 정의한 url 이외에는 인증 필요'하다는 설정
