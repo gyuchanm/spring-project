@@ -5,6 +5,7 @@ import com.estsoft.springproject.blog.domain.Article;
 import com.estsoft.springproject.blog.domain.dto.ArticleResponse;
 import com.estsoft.springproject.blog.domain.dto.UpdateArticleRequest;
 import com.estsoft.springproject.blog.service.BlogService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "블로그 CRUD", description = "api 설명을 이곳에 작성하면 된다") //swagger tag어노테이션 이름붙이기
 @Slf4j
 @RestController
 public class BlogController {
