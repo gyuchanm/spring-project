@@ -29,9 +29,11 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "article_id")
     private Article article;
-
     public Comment(String body, Article article) {
         this.body = body;
         this.article = article;
+    }
+    public void updateCommentBody(String body) {
+        this.body = body;
     }
 }

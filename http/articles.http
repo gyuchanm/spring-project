@@ -34,3 +34,7 @@ Content-Type: application/json
 {
   "body": "댓글 내용1"
 }
+
+###댓글 정보 조회 REST API
+GET localhost:8080/api/comments/{commentId}
+Content-Type: application/json

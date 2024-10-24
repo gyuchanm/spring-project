@@ -1,21 +1,28 @@
 package com.estsoft.springproject.blog.domain.dto;
 
+import com.estsoft.springproject.blog.domain.Article;
 import com.estsoft.springproject.blog.domain.Comment;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import static com.estsoft.springproject.util.DateFormatUtil.formatter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class CommentResponseDTO {
-    private Long id;
+    private Long commentId;
+    private Long articleId;
     private String body;
-    private LocalDateTime createdAt;
+    private String createdAt;
     private ArticleResponse article;
-
-
     public CommentResponseDTO(Comment comment) {
-        id = comment.getId();
+        Article articleFromComment = comment.getArticle();
+        commentId = comment.getId();
+        articleId = articleFromComment.getId();
         body = comment.getBody();
-        createdAt = comment.getCreatedAt();
-        article = new ArticleResponse(comment.getArticle());
+        createdAt = comment.getCreatedAt().format(formatter);
+        article = new ArticleResponse(articleFromComment);
     }
 }

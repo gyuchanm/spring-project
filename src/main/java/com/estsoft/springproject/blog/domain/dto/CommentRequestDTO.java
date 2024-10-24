@@ -9,6 +9,4 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CommentRequestDTO {
     private String body;
-
-
 }
